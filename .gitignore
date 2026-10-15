@@ -1,0 +1,10 @@
+# Part A & B simulation binaries and waveforms
+sim
+gls
+*.vcd
+*.out
+
+# Part D LibreLane temporary run directories (very large!)
+pnr/runs/
+runs/
+*.log
