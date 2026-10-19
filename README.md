@@ -37,3 +37,12 @@ Notes:
 - `$scopeinfo` is not a real cell. There is one per adder in the generic stats and zero in the final netlist.
 - The 16 flops are 16 of the 68 cells but 52.81 % of the area. A dfrtp_1 is 25.024 um^2 (20 sites), while a nand2_1 is 3.754 um^2 (3 sites).
 - Site check: one site is 0.46 x 2.72 = 1.2512 um^2. For nand2_1, 48.797 / 13 = 3.7536 and 3.7536 / 1.2512 = 3.0.
+
+Gate-level simulation:
+
+```
+CELLS=$PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/verilog
+iverilog -g2012 -DFUNCTIONAL -DUNIT_DELAY=#1 -o gls tb/tb_mult.v $CELLS/primitives.v $CELLS/sky130_fd_sc_hd.v synth/mult_array_netlist.v
+vvp gls
+```
+Result: PASS: 256 vectors checked, 0 errors
