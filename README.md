@@ -6,7 +6,7 @@ Yosys 0.69 (git 9f75ca1f9)
 OpenSTA 3.1.0
 Liberty file: sky130_fd_sc_hd__tt_025C_1v80.lib
 
-## Part B (run from repo root, inside the container)
+## Part B: Logic Synthesis
 ```
 yosys -c synth/synth.tcl | tee synth/yosys.log
 ```
@@ -46,3 +46,22 @@ iverilog -g2012 -DFUNCTIONAL -DUNIT_DELAY=#1 -o gls tb/tb_mult.v $CELLS/primitiv
 vvp gls
 ```
 Result: PASS: 256 vectors checked, 0 errors
+
+### Part C: Timing Analysis
+
+**Commands used:**
+`sta sta/sta.tcl` (Report from this kept for final deliverable)
+`T=5.0 sta sta/sta.tcl`
+`T=2.75 sta sta/sta.tcl`
+
+| Metric | Value |
+| :--- | :--- |
+| Worst slack at 10 ns | 7.25 ns |
+| T-min | 2.75 ns |
+| F-max | 363.63 MHz |
+| Slack at T-min (2.75 ns) | 0.00 ns |
+| Start point | `_104_` |
+| End point | `_102_` |
+| Number of cells on path | 8 |
+| Latency (2 × T-min) | 5.50 ns |
+| Throughput | 363.63 million results/sec |
