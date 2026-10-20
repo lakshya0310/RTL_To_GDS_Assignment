@@ -65,3 +65,27 @@ Result: PASS: 256 vectors checked, 0 errors
 | Number of cells on path | 8 |
 | Latency (2 × T-min) | 5.50 ns |
 | Throughput | 363.63 million results/sec |
+
+
+## Part D: Physical Design (RTL to GDSII)
+
+### Run History & Clock Period Tuning (Task 1)
+As required, every attempt is recorded below until timing met signoff criteria:
+1. `RUN_2026-10-20_19-43-23` (CLOCK_PERIOD = 3.5 ns): setup__ws = -1.8011 ns | nom_tt_ws = 0.6167 ns
+2. `RUN_2026-10-20_19-53-01` (CLOCK_PERIOD = 4.0 ns): setup__ws = -1.3195 ns | nom_tt_ws = 1.1132 ns
+3. `RUN_2026-10-20_19-58-42` (CLOCK_PERIOD = 4.5 ns): setup__ws = -0.8192 ns | nom_tt_ws = 1.6134 ns
+4. `RUN_2026-10-20_20-04-21` (CLOCK_PERIOD = 5.0 ns): setup__ws = -0.3192 ns | nom_tt_ws = 2.1134 ns
+5. `RUN_2026-10-20_20-10-04` (CLOCK_PERIOD = 5.5 ns): setup__ws = -0.0712 ns | nom_tt_ws = 2.4658 ns
+6. `RUN_2026-10-20_20-17-27` (CLOCK_PERIOD = 6.0 ns): setup__ws = -0.0443 ns | nom_tt_ws = 2.7877 ns (Final Passing Run)
+
+**Commands used (in order):**
+```bash
+cd pnr
+librelane --pdk-root "$PDK_ROOT" config.json
+
+# Copy final deliverables
+cp runs/RUN_2026-10-20_20-17-27/final/metrics.json ./metrics.json
+cp runs/RUN_2026-10-20_20-17-27/final/gds/mult_array.gds ./mult_array.gds
+
+# View layout in KLayout
+klayout mult_array.gds
