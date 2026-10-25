@@ -1,9 +1,10 @@
 # 4-bit array multiplier: RTL to GDSII
 
-Name: Sai Ritvik Uppuganti   Roll number: 2025122012
-Name: Lakshya Jindal   Roll number: 2023112017
+## Name: Lakshya Jindal   Roll number: 2023112017
+## Name: Sai Ritvik Uppuganti   Roll number: 2025122012
 
-Tools:
+
+### Tools:
 - IIC-OSIC-TOOLS (Docker)
 - iverilog 14.0 (devel)
 - Yosys 0.69 (git 9f75ca1f9)
