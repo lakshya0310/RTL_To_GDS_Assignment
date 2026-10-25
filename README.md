@@ -1,7 +1,9 @@
 # 4-bit array multiplier: RTL to GDSII
 
-## Name: Lakshya Jindal   Roll number: 2023112017
-## Name: Sai Ritvik Uppuganti   Roll number: 2025122012
+#### Name: Lakshya Jindal   
+##### Roll number: 2023112017
+#### Name: Sai Ritvik Uppuganti   
+##### Roll number: 2025122012
 
 
 ### Tools:
